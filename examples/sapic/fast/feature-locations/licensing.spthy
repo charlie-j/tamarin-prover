@@ -4,7 +4,7 @@ begin
 
 builtins:  symmetric-encryption,asymmetric-encryption,locations-report
 functions: pk/1,run/2,prg/1,tkn/1,ok/2,ask/2, dec/1,dec1/1,dec2/1
-heuristic: P
+heuristic: s
 
 predicates:
 Report(x,y) <=> not(Ex z. y = <'loc',z>)
@@ -59,10 +59,10 @@ new prog; event Auth(prog);   // initialisiation of the licensed program
 
 
 
-lemma attested_comput[reuse]:
+lemma attested_comput:
 	"All #t1 inp pk. Poutput(inp,pk)@t1  ==> (Ex #t2 . Token(pk)@t2 & t2 <t1 )"
 
-lemma unique[reuse]:
+lemma unique:
 	"not (Ex #t1 #t2 pk inp inp2 .
 		 Poutput(inp,pk)@t1
 		& Poutput(inp2,pk)@t2
